@@ -1,3 +1,3 @@
 import 'package:flutter/material.dart';
 
-Color appBarColor = Color.fromARGB(255, 21, 66, 104);
+Color appBarColor = const Color.fromARGB(255, 21, 66, 104);

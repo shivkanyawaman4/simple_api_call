@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../api/api.dart';
 import '../constants/colors.dart';
 import '../modals/testing_modal.dart';
-import 'detais.dart';
+import 'details.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
