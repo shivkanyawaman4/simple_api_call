@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Details()));
+                                    builder: (context) =>   Details( data: _posts[index])));
                           },
                           child: Card(
                             child: ListTile(
