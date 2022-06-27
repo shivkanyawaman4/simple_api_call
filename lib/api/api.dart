@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart';
 
 class ApiServices {
-  static String baseURL = 'https://reqres.in/api/users';
+  static String baseURL =
+      'http://adminapp.tech/sharefeelings/api/posts?category=12&subcategory=15';
 
   static Future<Map> getPosts() async {
     Response response = await get(Uri.parse(baseURL));

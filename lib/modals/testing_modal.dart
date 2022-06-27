@@ -1,93 +1,88 @@
 class TestingModal {
-  int? page;
-  int? perPage;
-  int? total;
-  int? totalPages;
-  List<Data>? data;
-  Support? support;
+  String? status;
+  int? error;
+  int? success;
+  List<Result>? result;
 
-  TestingModal(
-      {this.page,
-      this.perPage,
-      this.total,
-      this.totalPages,
-      this.data,
-      this.support});
+  TestingModal({this.status, this.error, this.success, this.result});
 
   TestingModal.fromJson(Map<String, dynamic> json) {
-    page = json['page'];
-    perPage = json['per_page'];
-    total = json['total'];
-    totalPages = json['total_pages'];
-    if (json['data'] != null) {
-      data = <Data>[];
-      json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+    status = json['status'];
+    error = json['error'];
+    success = json['success'];
+    if (json['result'] != null) {
+      result = <Result>[];
+      json['result'].forEach((v) {
+        result!.add(new Result.fromJson(v));
       });
     }
-    support =
-        json['support'] != null ? Support.fromJson(json['support']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['page'] = page;
-    data['per_page'] = perPage;
-    data['total'] = total;
-    data['total_pages'] = totalPages;
-    if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
-    }
-    if (support != null) {
-      data['support'] = support!.toJson();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['status'] = this.status;
+    data['error'] = this.error;
+    data['success'] = this.success;
+    if (this.result != null) {
+      data['result'] = this.result!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class Data {
-  int? id;
-  String? email;
-  String? firstName;
-  String? lastName;
-  String? avatar;
+class Result {
+  String? id;
+  String? category;
+  String? subcategory;
+  String? title;
+  String? publish;
+  String? description;
+  String? imgpath;
+  String? deleted;
+  String? addedBy;
+  String? dt;
+  String? type;
 
-  Data({this.id, this.email, this.firstName, this.lastName, this.avatar});
+  Result(
+      {this.id,
+      this.category,
+      this.subcategory,
+      this.title,
+      this.publish,
+      this.description,
+      this.imgpath,
+      this.deleted,
+      this.addedBy,
+      this.dt,
+      this.type});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  Result.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    email = json['email'];
-    firstName = json['first_name'];
-    lastName = json['last_name'];
-    avatar = json['avatar'];
+    category = json['category'];
+    subcategory = json['subcategory'];
+    title = json['title'];
+    publish = json['publish'];
+    description = json['description'];
+    imgpath = json['imgpath'];
+    deleted = json['deleted'];
+    addedBy = json['added_by'];
+    dt = json['dt'];
+    type = json['type'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['email'] = email;
-    data['first_name'] = firstName;
-    data['last_name'] = lastName;
-    data['avatar'] = avatar;
-    return data;
-  }
-}
-
-class Support {
-  String? url;
-  String? text;
-
-  Support({this.url, this.text});
-
-  Support.fromJson(Map<String, dynamic> json) {
-    url = json['url'];
-    text = json['text'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['url'] = url;
-    data['text'] = text;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['category'] = this.category;
+    data['subcategory'] = this.subcategory;
+    data['title'] = this.title;
+    data['publish'] = this.publish;
+    data['description'] = this.description;
+    data['imgpath'] = this.imgpath;
+    data['deleted'] = this.deleted;
+    data['added_by'] = this.addedBy;
+    data['dt'] = this.dt;
+    data['type'] = this.type;
     return data;
   }
 }

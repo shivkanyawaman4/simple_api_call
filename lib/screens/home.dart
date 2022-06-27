@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../api/api.dart';
 import '../constants/colors.dart';
 import '../modals/testing_modal.dart';
-import 'details.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -13,20 +12,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<Data> _posts = [];
+  final List<Result> _posts = [];
   bool showData = false;
   @override
   void initState() {
     super.initState();
     ApiServices.getPosts().then((value) {
       if (value.isNotEmpty) {
-        value['data'].forEach((element) {
-          _posts.add(Data.fromJson(element));
+        value['result'].forEach((element) {
+          _posts.add(Result.fromJson(element));
           showData = true;
           setState(() {});
         });
       } else {
-        showData = false;
+        showData = true;
         setState(() {});
       }
     });
@@ -48,18 +47,19 @@ class _HomeState extends State<Home> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>   Details( data: _posts[index])));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) =>
+                            //             Details(data: _posts[index])));
                           },
                           child: Card(
                             child: ListTile(
-                              title: Text(_posts[index].firstName!),
-                              subtitle: Text(_posts[index].lastName!),
+                              title: Text(_posts[index].title!),
+                              subtitle: Text(_posts[index].description!),
                               leading: CircleAvatar(
                                 backgroundImage:
-                                    NetworkImage(_posts[index].avatar!),
+                                    NetworkImage(_posts[index].imgpath!),
                               ),
                             ),
                           ),
