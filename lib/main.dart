@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import 'screens/main_page.dart';
+import 'screens/keshari_edutech.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           const ResponsiveBreakpoint.resize(1700, name: 'XL'),
         ],
       ),
-      title: 'Flutter Demo',
+      title: 'Keshari Edutech',
       theme: ThemeData(
         fontFamily: GoogleFonts.workSans().fontFamily,
         textTheme: const TextTheme(
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.green,
       ),
-      home: const MainPage(),
+      home: const KeshriEduTech(),
     );
   }
 }

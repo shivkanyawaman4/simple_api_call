@@ -41,6 +41,7 @@ dependencies:
   cloud_firestore: ^3.3.0
   table_calendar: ^3.0.6
   google_fonts: ^3.0.1
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
