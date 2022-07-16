@@ -45,22 +45,13 @@ class _HomeState extends State<Home> {
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
-                        InkWell(
-                          onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) =>
-                            //             Details(data: _posts[index])));
-                          },
-                          child: Card(
-                            child: ListTile(
-                              title: Text(_posts[index].title!),
-                              subtitle: Text(_posts[index].description!),
-                              leading: CircleAvatar(
-                                backgroundImage:
-                                    NetworkImage(_posts[index].imgpath!),
-                              ),
+                        Card(
+                          child: ListTile(
+                            title: Text(_posts[index].title!),
+                            subtitle: Text(_posts[index].description!),
+                            leading: CircleAvatar(
+                              backgroundImage:
+                                  NetworkImage(_posts[index].imgpath!),
                             ),
                           ),
                         ),
